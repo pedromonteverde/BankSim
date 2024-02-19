@@ -3,38 +3,28 @@
 //
 
 import XCTest
-import SwiftUI
 @testable import BankSim
 
 final class BankSimHomeTests: XCTestCase, Screen {
 
-    var exp: XCTestExpectation?
-
-    override func setUp() {
-        super.setUp()
-        exp = expectation(description: "")
-    }
-
-    func fullfill() {
-        exp?.fulfill()
-    }
-
     func testHomeScreen() throws {
 
+        let exp = expectation(description: "")
+
         Task { @MainActor in
-            try await GivenImAtTheHomeScreen()
+            try await StartHomeScreen()
                 .andWait(for: 2)
                 .thenISeeUserProfileDetails()
                 .andThereAreBankAccounts()
                 .tap1stBankAccount()
-                .fullfill()
+                .fulfill(exp)
         }
 
         waitForExpectations(timeout: 10)
     }
 
     @discardableResult
-    func GivenImAtTheHomeScreen() -> Self {
+    func StartHomeScreen() -> Self {
         navigationController.map {
             HomeCoordinator(navigationController: $0)
         }?.start()
@@ -60,11 +50,11 @@ final class BankSimHomeTests: XCTestCase, Screen {
     @discardableResult
     func tap1stBankAccount(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
         let cellView = find(by: Accessibility.Home.cell)
-        let cell = try? XCTUnwrap(cellView as? UICollectionViewCell, message)
-        XCTAssertNotNil(cell, message)
+        let cell = try XCTUnwrap(cellView as? UICollectionViewCell, message, file: file, line: line)
+        XCTAssertNotNil(cell, message, file: file, line: line)
         let listView = find(by: Accessibility.Home.list)
-        let list = try? XCTUnwrap(listView as? UICollectionView, message)
-        list?.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .bottom)
+        let list = try XCTUnwrap(listView as? UICollectionView, message, file: file, line: line)
+        list.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .bottom)
         return self
     }
 }

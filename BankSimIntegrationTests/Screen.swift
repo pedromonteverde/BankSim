@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import XCTest
 @testable import BankSim
 
 protocol Screen {
@@ -34,5 +35,9 @@ extension Screen {
     func andWait(for time: UInt32) async -> Self {
         sleep(time)
         return self
+    }
+
+    func fulfill(_ expectaction: XCTestExpectation) {
+        expectaction.fulfill()
     }
 }
