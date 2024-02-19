@@ -6,15 +6,15 @@ import UIKit
 import XCTest
 @testable import BankSim
 
-protocol Screen {
-    var navigationController: UINavigationController? { get }
-}
-
-extension Screen {
+class ScreenTestCase: XCTestCase {
 
     var navigationController: UINavigationController? {
-        SceneDelegate.navigationController
+        let navigation = SceneDelegate.navigationController
+        navigation?.delegate = self
+        return navigation
+
     }
+    var screenPresented: () -> Void = {}
 
     func find(by accessibilityIdentifier: String) -> UIView? {
         navigationController?
@@ -32,12 +32,30 @@ extension Screen {
             .filter { $0.accessibilityIdentifier == accessibilityIdentifier }
     }
 
-    func andWait(for time: UInt32) async -> Self {
+    func wait(for time: UInt32) async -> Self {
         sleep(time)
         return self
     }
 
     func fulfill(_ expectaction: XCTestExpectation) {
         expectaction.fulfill()
+    }
+}
+
+extension ScreenTestCase: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        DispatchQueue.main.async {
+            self.screenPresented()
+        }
+    }
+
+    @discardableResult
+    func waitForPresentation() async -> Self {
+        await withCheckedContinuation { continuation in
+            screenPresented = {
+                continuation.resume()
+            }
+        }
+        return self
     }
 }

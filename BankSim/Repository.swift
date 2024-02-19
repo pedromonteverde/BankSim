@@ -9,10 +9,10 @@ typealias Amount = Double
 
 actor Repository {
 
-    let responseDelay: UInt64 = 1 * 1000000000
+    static var responseDelay: UInt64 = 1 * 1000000000
 
     func fetchUser() async throws -> User {
-        try await Task.sleep(nanoseconds: responseDelay)
+        try await Task.sleep(nanoseconds: Repository.responseDelay)
         let user = Database.user
         return user
     }
@@ -77,7 +77,7 @@ actor Repository {
     }
 
     private func authorizeTransaction() async throws -> Bool {
-        try await Task.sleep(nanoseconds: responseDelay)
+        try await Task.sleep(nanoseconds: Repository.responseDelay)
         return true
     }
 }

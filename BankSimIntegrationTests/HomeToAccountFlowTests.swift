@@ -5,18 +5,23 @@
 import XCTest
 @testable import BankSim
 
-final class HomeToAccountFlowTests: XCTestCase, Screen {
+final class HomeToAccountFlowTests: ScreenTestCase {
+
+    override func setUp() {
+        Repository.responseDelay = 0
+        UIView.setAnimationsEnabled(false)
+    }
 
     func testHomeToAccountFlow() throws {
-
+        
         let exp = expectation(description: "")
 
         Task { @MainActor in
             try await StartHomeScreen()
-                .andWait(for: 3)
+                .waitForPresentation()
                 .tap1stBankAccount()
-                .navigateToAtTheAccountScreen()
-                .andWait(for: 2)
+                .navigateToAccountScreen()
+                .waitForPresentation()
                 .fulfill(exp)
         }
 
@@ -43,7 +48,7 @@ final class HomeToAccountFlowTests: XCTestCase, Screen {
     }
 
     @discardableResult
-    func navigateToAtTheAccountScreen() -> Self {
+    func navigateToAccountScreen() -> Self {
         navigationController.map {
             AccountCoordinator(
                 navigationController: $0,

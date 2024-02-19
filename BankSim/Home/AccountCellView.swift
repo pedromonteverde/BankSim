@@ -10,11 +10,17 @@ struct AccountCellView: View {
     var accountBalance: Amount = 0
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(accountType.descrition)
-                .font(.callout)
-                .foregroundStyle(Color.gray)
-            Text("\(formatCurrency(from: accountBalance))")
+        HStack {
+            VStack(alignment: .leading) {
+                Text(accountType.descrition)
+                    .font(.callout)
+                    .foregroundStyle(Color.gray)
+                Text("\(formatCurrency(from: accountBalance))")
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color.gray)
         }
+        .background(Color.white)
     }
 }

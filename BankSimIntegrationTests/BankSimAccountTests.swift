@@ -5,7 +5,12 @@
 import XCTest
 @testable import BankSim
 
-final class BankSimAccountTests: XCTestCase, Screen {
+final class BankSimAccountTests: ScreenTestCase {
+
+    override func setUp() {
+        Repository.responseDelay = 0
+        UIView.setAnimationsEnabled(false)
+    }
 
     func testAccountScreen() throws {
 
@@ -13,7 +18,7 @@ final class BankSimAccountTests: XCTestCase, Screen {
 
         Task { @MainActor in
             try await StartAccountScreen()
-                .andWait(for: 1)
+                .waitForPresentation()
                 .givenISeeAccountDetails()
                 .andIDepositMoneyTwice()
                 .iSee2Transactions()
