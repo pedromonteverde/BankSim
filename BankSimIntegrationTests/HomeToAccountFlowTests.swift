@@ -28,11 +28,13 @@ final class HomeToAccountFlowTests: ScreenTestCase {
         waitForExpectations(timeout: 10)
     }
 
+    var coordinator: HomeCoordinator?
     @discardableResult
     func StartHomeScreen() -> Self {
         navigationController.map {
-            HomeCoordinator(navigationController: $0)
-        }?.start()
+            coordinator = HomeCoordinator(navigationController: $0)
+        }
+        coordinator?.start()
         return self
     }
 
@@ -43,18 +45,15 @@ final class HomeToAccountFlowTests: ScreenTestCase {
         XCTAssertNotNil(cell, message, file: file, line: line)
         let listView = find(by: Accessibility.Home.list)
         let list = try XCTUnwrap(listView as? UICollectionView, message, file: file, line: line)
-        list.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .bottom)
+        XCTAssertNotNil(list, message, file: file, line: line)
+        coordinator?.goToAccount(Database.account.id)
         return self
     }
 
     @discardableResult
-    func navigateToAccountScreen() -> Self {
-        navigationController.map {
-            AccountCoordinator(
-                navigationController: $0,
-                viewModel: AccountViewModel(accountRequest: Database.account.id)
-            )
-        }?.start()
+    func navigateToAccountScreen(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
+        let accountHeader = find(by: Accessibility.Account.header)
+        XCTAssertNil(accountHeader, message, file: file, line: line)
         return self
     }
 }

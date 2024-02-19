@@ -14,7 +14,7 @@ class ScreenTestCase: XCTestCase {
         return navigation
 
     }
-    var screenPresented: () -> Void = {}
+    var screenPresented: (() -> Void)?
 
     func find(by accessibilityIdentifier: String) -> UIView? {
         navigationController?
@@ -45,7 +45,7 @@ class ScreenTestCase: XCTestCase {
 extension ScreenTestCase: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         DispatchQueue.main.async {
-            self.screenPresented()
+            self.screenPresented?()
         }
     }
 
@@ -56,6 +56,7 @@ extension ScreenTestCase: UINavigationControllerDelegate {
                 continuation.resume()
             }
         }
+        screenPresented = nil
         return self
     }
 }
