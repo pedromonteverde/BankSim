@@ -13,9 +13,13 @@
 		CB0BEC0C2B7F8BC400720F41 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC0B2B7F8BC400720F41 /* RepositoryTests.swift */; };
 		CB0BEC0E2B7F8BDE00720F41 /* AccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC0D2B7F8BDE00720F41 /* AccountViewModelTests.swift */; };
 		CB0BEC102B7F8BED00720F41 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC0F2B7F8BED00720F41 /* HomeViewModelTests.swift */; };
-		CB0BEC132B7F8CE300720F41 /* BankSimLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC122B7F8CE300720F41 /* BankSimLaunchTests.swift */; };
 		CB0BEC152B7F8DC600720F41 /* DummyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC142B7F8DC600720F41 /* DummyNavigationController.swift */; };
-		CB0BEC232B7FB34F00720F41 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */; };
+		CB22594D2B828360000631B0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */; };
+		CB22594E2B828360000631B0 /* BankSimHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC122B7F8CE300720F41 /* BankSimHomeTests.swift */; };
+		CB22594F2B828360000631B0 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCE1F222B800A11000418C1 /* Screen.swift */; };
+		CB2259532B829EF8000631B0 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = CB2259522B829EF8000631B0 /* SwiftUIIntrospect */; };
+		CB2259552B82B664000631B0 /* BankSimAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2259542B82B664000631B0 /* BankSimAccountTests.swift */; };
+		CB2259572B82B89D000631B0 /* HomeToAccountFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */; };
 		CB5EB8872B798D3F00346C7D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EB8862B798D3E00346C7D /* Repository.swift */; };
 		CBAB7E272B7BC98500A0E802 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAB7E262B7BC98500A0E802 /* Extensions.swift */; };
 		CBB15C1D2B7969CE00B1F9CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB15C1C2B7969CE00B1F9CC /* AppDelegate.swift */; };
@@ -23,7 +27,6 @@
 		CBB15C2E2B7969D200B1F9CC /* BankSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB15C2D2B7969D200B1F9CC /* BankSimTests.swift */; };
 		CBB15C382B7969D200B1F9CC /* BankSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB15C372B7969D200B1F9CC /* BankSimUITests.swift */; };
 		CBB15C3A2B7969D200B1F9CC /* BankSimUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB15C392B7969D200B1F9CC /* BankSimUITestsLaunchTests.swift */; };
-		CBCE1F232B800A11000418C1 /* PageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCE1F222B800A11000418C1 /* PageObject.swift */; };
 		CBE2BA8C2B7BE4D2000F939D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2BA8B2B7BE4D2000F939D /* HomeCoordinator.swift */; };
 		CBE2BA8E2B7BEE2C000F939D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2BA8D2B7BEE2C000F939D /* AccountView.swift */; };
 		CBE2BA902B7BF20F000F939D /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE2BA8F2B7BF20F000F939D /* AccountHeaderView.swift */; };
@@ -45,6 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CB2259482B8282C7000631B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBB15C112B7969CE00B1F9CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBB15C182B7969CE00B1F9CC;
+			remoteInfo = BankSim;
+		};
 		CBB15C2A2B7969D200B1F9CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBB15C112B7969CE00B1F9CC /* Project object */;
@@ -68,9 +78,12 @@
 		CB0BEC0B2B7F8BC400720F41 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		CB0BEC0D2B7F8BDE00720F41 /* AccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTests.swift; sourceTree = "<group>"; };
 		CB0BEC0F2B7F8BED00720F41 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		CB0BEC122B7F8CE300720F41 /* BankSimLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimLaunchTests.swift; sourceTree = "<group>"; };
+		CB0BEC122B7F8CE300720F41 /* BankSimHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimHomeTests.swift; sourceTree = "<group>"; };
 		CB0BEC142B7F8DC600720F41 /* DummyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyNavigationController.swift; sourceTree = "<group>"; };
 		CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		CB2259442B8282C7000631B0 /* BankSimIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankSimIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB2259542B82B664000631B0 /* BankSimAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimAccountTests.swift; sourceTree = "<group>"; };
+		CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeToAccountFlowTests.swift; sourceTree = "<group>"; };
 		CB5EB8862B798D3E00346C7D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		CBAB7E262B7BC98500A0E802 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBB15C192B7969CE00B1F9CC /* BankSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +94,7 @@
 		CBB15C332B7969D200B1F9CC /* BankSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB15C372B7969D200B1F9CC /* BankSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimUITests.swift; sourceTree = "<group>"; };
 		CBB15C392B7969D200B1F9CC /* BankSimUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		CBCE1F222B800A11000418C1 /* PageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageObject.swift; sourceTree = "<group>"; };
+		CBCE1F222B800A11000418C1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		CBE2BA8B2B7BE4D2000F939D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		CBE2BA8D2B7BEE2C000F939D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		CBE2BA8F2B7BF20F000F939D /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
@@ -103,10 +116,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CB2259412B8282C7000631B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBB15C162B7969CE00B1F9CC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2259532B829EF8000631B0 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,24 +148,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CB0BEC112B7F8CB600720F41 /* BankSimIntegrationTests */ = {
+		CB2259452B8282C7000631B0 /* BankSimIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB0BEC122B7F8CE300720F41 /* BankSimLaunchTests.swift */,
-				CBCE1F222B800A11000418C1 /* PageObject.swift */,
+				CB0BEC122B7F8CE300720F41 /* BankSimHomeTests.swift */,
+				CB2259542B82B664000631B0 /* BankSimAccountTests.swift */,
+				CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */,
+				CBCE1F222B800A11000418C1 /* Screen.swift */,
 				CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */,
 			);
 			path = BankSimIntegrationTests;
+			sourceTree = "<group>";
+		};
+		CB2259512B829EF8000631B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CBB15C102B7969CE00B1F9CC = {
 			isa = PBXGroup;
 			children = (
 				CBB15C1B2B7969CE00B1F9CC /* BankSim */,
-				CB0BEC112B7F8CB600720F41 /* BankSimIntegrationTests */,
 				CBB15C2C2B7969D200B1F9CC /* BankSimTests */,
 				CBB15C362B7969D200B1F9CC /* BankSimUITests */,
+				CB2259452B8282C7000631B0 /* BankSimIntegrationTests */,
 				CBB15C1A2B7969CE00B1F9CC /* Products */,
+				CB2259512B829EF8000631B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +185,7 @@
 				CBB15C192B7969CE00B1F9CC /* BankSim.app */,
 				CBB15C292B7969D200B1F9CC /* BankSimTests.xctest */,
 				CBB15C332B7969D200B1F9CC /* BankSimUITests.xctest */,
+				CB2259442B8282C7000631B0 /* BankSimIntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +278,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CB2259432B8282C7000631B0 /* BankSimIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB22594C2B8282C8000631B0 /* Build configuration list for PBXNativeTarget "BankSimIntegrationTests" */;
+			buildPhases = (
+				CB2259402B8282C7000631B0 /* Sources */,
+				CB2259412B8282C7000631B0 /* Frameworks */,
+				CB2259422B8282C7000631B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB2259492B8282C7000631B0 /* PBXTargetDependency */,
+			);
+			name = BankSimIntegrationTests;
+			productName = BankSimIntegrationTests;
+			productReference = CB2259442B8282C7000631B0 /* BankSimIntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CBB15C182B7969CE00B1F9CC /* BankSim */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBB15C3D2B7969D200B1F9CC /* Build configuration list for PBXNativeTarget "BankSim" */;
@@ -259,6 +309,9 @@
 			dependencies = (
 			);
 			name = BankSim;
+			packageProductDependencies = (
+				CB2259522B829EF8000631B0 /* SwiftUIIntrospect */,
+			);
 			productName = BankSim;
 			productReference = CBB15C192B7969CE00B1F9CC /* BankSim.app */;
 			productType = "com.apple.product-type.application";
@@ -309,6 +362,10 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					CB2259432B8282C7000631B0 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = CBB15C182B7969CE00B1F9CC;
+					};
 					CBB15C182B7969CE00B1F9CC = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -331,18 +388,29 @@
 				Base,
 			);
 			mainGroup = CBB15C102B7969CE00B1F9CC;
+			packageReferences = (
+				CB2259502B829C77000631B0 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+			);
 			productRefGroup = CBB15C1A2B7969CE00B1F9CC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CBB15C182B7969CE00B1F9CC /* BankSim */,
 				CBB15C282B7969D200B1F9CC /* BankSimTests */,
+				CB2259432B8282C7000631B0 /* BankSimIntegrationTests */,
 				CBB15C322B7969D200B1F9CC /* BankSimUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CB2259422B8282C7000631B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBB15C172B7969CE00B1F9CC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +436,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CB2259402B8282C7000631B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB22594D2B828360000631B0 /* UIViewExtension.swift in Sources */,
+				CB2259572B82B89D000631B0 /* HomeToAccountFlowTests.swift in Sources */,
+				CB2259552B82B664000631B0 /* BankSimAccountTests.swift in Sources */,
+				CB22594E2B828360000631B0 /* BankSimHomeTests.swift in Sources */,
+				CB22594F2B828360000631B0 /* Screen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBB15C152B7969CE00B1F9CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,9 +471,7 @@
 				CBE2BA9D2B7D0C12000F939D /* AccountViewModel.swift in Sources */,
 				CBE2BAAE2B7D432B000F939D /* Coordinator.swift in Sources */,
 				CBE2BA9B2B7D0BA2000F939D /* HomeViewModel.swift in Sources */,
-				CB0BEC232B7FB34F00720F41 /* UIViewExtension.swift in Sources */,
 				CBE2BAA72B7D37FA000F939D /* User.swift in Sources */,
-				CBCE1F232B800A11000418C1 /* PageObject.swift in Sources */,
 				CBB15C1D2B7969CE00B1F9CC /* AppDelegate.swift in Sources */,
 				CBE2BAB22B7D5561000F939D /* AccountCellView.swift in Sources */,
 				CBE2BA8E2B7BEE2C000F939D /* AccountView.swift in Sources */,
@@ -407,7 +485,6 @@
 				CB0BEC0A2B7F8BBD00720F41 /* ValidatorTests.swift in Sources */,
 				CB0BEC082B7F8BB300720F41 /* CoordinatorTests.swift in Sources */,
 				CBB15C2E2B7969D200B1F9CC /* BankSimTests.swift in Sources */,
-				CB0BEC132B7F8CE300720F41 /* BankSimLaunchTests.swift in Sources */,
 				CB0BEC0C2B7F8BC400720F41 /* RepositoryTests.swift in Sources */,
 				CB0BEC0E2B7F8BDE00720F41 /* AccountViewModelTests.swift in Sources */,
 				CB0BEC102B7F8BED00720F41 /* HomeViewModelTests.swift in Sources */,
@@ -426,6 +503,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CB2259492B8282C7000631B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBB15C182B7969CE00B1F9CC /* BankSim */;
+			targetProxy = CB2259482B8282C7000631B0 /* PBXContainerItemProxy */;
+		};
 		CBB15C2B2B7969D200B1F9CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CBB15C182B7969CE00B1F9CC /* BankSim */;
@@ -439,6 +521,42 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CB22594A2B8282C8000631B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G58YZ653N3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteverde.BankSimIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BankSim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BankSim";
+			};
+			name = Debug;
+		};
+		CB22594B2B8282C8000631B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G58YZ653N3;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteverde.BankSimIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BankSim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BankSim";
+			};
+			name = Release;
+		};
 		CBB15C3B2B7969D200B1F9CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -697,6 +815,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CB22594C2B8282C8000631B0 /* Build configuration list for PBXNativeTarget "BankSimIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB22594A2B8282C8000631B0 /* Debug */,
+				CB22594B2B8282C8000631B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CBB15C142B7969CE00B1F9CC /* Build configuration list for PBXProject "BankSim" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -734,6 +861,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CB2259502B829C77000631B0 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CB2259522B829EF8000631B0 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CB2259502B829C77000631B0 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CBB15C112B7969CE00B1F9CC /* Project object */;
 }

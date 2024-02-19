@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import SwiftUIIntrospect
 
 struct AccountView: View {
 
@@ -13,6 +14,9 @@ struct AccountView: View {
         VStack {
             VStack(alignment: .leading) {
                 AccountHeaderView(viewModel: viewModel)
+                    .introspect(.view, on: .iOS(.v17)) {
+                        $0.accessibilityIdentifier = Accessibility.Account.header
+                    }
                 Spacer(minLength: 16)
                 ZStack {
                     List {
@@ -21,9 +25,15 @@ struct AccountView: View {
                             id: \.id
                         ) {
                             TransactionCellView(transaction: $0)
+                                .introspect(.listCell, on: .iOS(.v17)) {
+                                    $0.accessibilityIdentifier = Accessibility.Account.cell
+                                }
                         }
                     }
                     .animation(.default, value: viewModel.transactions.count)
+                    .introspect(.list, on: .iOS(.v17)) {
+                        $0.accessibilityIdentifier = Accessibility.Account.list
+                    }
                     if viewModel.transactions.isEmpty {
                         Text("No Transactions")
                             .foregroundStyle(Color.gray)
@@ -45,10 +55,14 @@ struct AccountView: View {
 }
 
 #Preview {
-    AccountCoordinator(
-        navigationController: DummyNavigationController(),
-        viewModel: AccountViewModel(accountRequest: Database.account.id)
-    ).start()
+    let viewModel = AccountViewModel(accountRequest: Database.account.id)
+    return AccountView(
+        coordinator: AccountCoordinator(
+            navigationController: DummyNavigationController(),
+            viewModel: viewModel
+        ),
+        viewModel: viewModel
+    )
 }
 
 func formatDate(_ date: Date) -> String {

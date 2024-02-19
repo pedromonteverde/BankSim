@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import SwiftUIIntrospect
 
 struct TransferView: View {
 
@@ -20,7 +21,9 @@ struct TransferView: View {
                     .frame(width: 100)
                 Button("Withdraw") {
                     viewModel.withdraw(amountString: amountToWithdraw)
-
+                }
+                .introspect(.view, on: .iOS(.v17)) {
+                    $0.accessibilityIdentifier = Accessibility.Account.withdraw
                 }
                 .frame(width: 100)
                 .padding(.trailing, 16)
@@ -33,6 +36,9 @@ struct TransferView: View {
                     .padding(.bottom, 32)
                 Button("Deposit") {
                     viewModel.deposit(amountString: amountToDeposit)
+                }
+                .introspect(.view, on: .iOS(.v17)) {
+                    $0.accessibilityIdentifier = Accessibility.Account.deposit
                 }
                 .frame(width: 100)
                 .padding(.trailing, 16)

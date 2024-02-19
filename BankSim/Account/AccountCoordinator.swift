@@ -3,11 +3,12 @@
 //
 
 import SwiftUI
+import Combine
 
-class AccountCoordinator: Coordinator, ObservableObject {
+class AccountCoordinator: Coordinator {
     var navigationController: UINavigationController
-    var parent: (any Coordinator)?
-    var children: [any Coordinator] = []
+    var parent: Coordinator?
+    var children: [Coordinator] = []
 
     let viewModel: AccountViewModel
 
@@ -19,9 +20,10 @@ class AccountCoordinator: Coordinator, ObservableObject {
         self.viewModel = viewModel
     }
 
-    @ViewBuilder
-    func start() -> some View {
-        AccountView(coordinator: self, viewModel: self.viewModel)
+    func start() {
+        let swiftUIView = AccountView(coordinator: self, viewModel: self.viewModel)
+        let viewController = UIHostingController(rootView: swiftUIView)
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     func dismiss() {

@@ -7,19 +7,16 @@ import SwiftUI
 protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
 
-    associatedtype V: View
+    var parent: Coordinator? { get set }
+    var children: [Coordinator] { get set }
 
-    var parent: (any Coordinator)? { get set }
-    var children: [any Coordinator] { get set }
+    func start()
 
-    @ViewBuilder
-    func start() -> V
-
-    func childDidDismiss(_ child: any Coordinator)
+    func childDidDismiss(_ child: Coordinator)
 }
 
 extension Coordinator {
-    func childDidDismiss(_ child: any Coordinator) {
+    func childDidDismiss(_ child: Coordinator) {
         children.removeAll { $0 === child }
     }
 }

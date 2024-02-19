@@ -3,30 +3,34 @@
 //
 
 import SwiftUI
-import Combine
+import SwiftUIIntrospect
 
 struct HomeView: View {
 
     var coordinator: HomeCoordinator
     @StateObject var viewModel: HomeViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             UserDetailsView(viewModel: viewModel)
+                .introspect(.view, on: .iOS(.v17)) {
+                    $0.accessibilityIdentifier = Accessibility.Home.header
+                }
             List {
                 ForEach(viewModel.accounts, id: \.id) { account in
-                    // Redo this
-                    NavigationLink(
-                        destination: coordinator.goToAccount(account.id)
-                    ) {
-                        AccountCellView(accountType: account.type, accountBalance: account.balance)
-                    }
+                    AccountCellView(accountType: account.type, accountBalance: account.balance)
+                        .introspect(.listCell, on: .iOS(.v17)) {
+                            $0.accessibilityIdentifier = Accessibility.Home.cell
+                        }
+                        .onTapGesture {
+                            coordinator.goToAccount(account.id)
+                        }
                 }
             }
-            .accessibilityIdentifier(Accessibility.Home.account)
+            .introspect(.list, on: .iOS(.v17)) {
+                $0.accessibilityIdentifier = Accessibility.Home.list
+            }
         }
-        .accessibilityIdentifier(Accessibility.Home.account)
-        .accessibilityLabel("Test")
         .padding()
         .navigationBarTitle("Accounts")
         .errorAlert(error: $viewModel.error)
@@ -37,5 +41,10 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeCoordinator(navigationController: DummyNavigationController()).start()
+    HomeView(
+        coordinator: HomeCoordinator(
+            navigationController: DummyNavigationController()
+        ),
+        viewModel: HomeViewModel()
+    )
 }

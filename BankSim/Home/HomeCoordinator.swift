@@ -4,30 +4,26 @@
 
 import SwiftUI
 
-class HomeCoordinator: Coordinator, ObservableObject {
+class HomeCoordinator: Coordinator {
     var navigationController: UINavigationController
-    var parent: (any Coordinator)?
-    var children: [any Coordinator] = []
+    var parent: Coordinator?
+    var children: [Coordinator] = []
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
-    @ViewBuilder
-    func start() -> some View {
-        NavigationView {
-            HomeView(
-                coordinator: self,
-                viewModel: HomeViewModel()
-            )
-        }
+    func start() {
+        let swiftUIView = HomeView(coordinator: self, viewModel: HomeViewModel())
+        let viewController = UIHostingController(rootView: swiftUIView)
+        navigationController.pushViewController(viewController, animated: false)
     }
 
-    func goToAccount(_ accountRequest: AccountRequest) -> some View {
+    func goToAccount(_ accountRequest: AccountRequest) {
         let viewModel = AccountViewModel(accountRequest: accountRequest)
         let coordinator = AccountCoordinator(navigationController: navigationController, viewModel: viewModel)
         coordinator.parent = self
         children.append(coordinator)
-        return coordinator.start()
+        coordinator.start()
     }
 }
