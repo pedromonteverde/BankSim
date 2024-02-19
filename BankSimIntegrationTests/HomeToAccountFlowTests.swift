@@ -20,8 +20,8 @@ final class HomeToAccountFlowTests: ScreenTestCase {
             try await StartHomeScreen()
                 .waitForPresentation()
                 .tap1stBankAccount()
-                .navigateToAccountScreen()
                 .waitForPresentation()
+                .landOnAccountScreen()
                 .fulfill(exp)
         }
 
@@ -51,9 +51,9 @@ final class HomeToAccountFlowTests: ScreenTestCase {
     }
 
     @discardableResult
-    func navigateToAccountScreen(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
+    func landOnAccountScreen(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
         let accountHeader = find(by: Accessibility.Account.header)
-        XCTAssertNil(accountHeader, message, file: file, line: line)
+        XCTAssertNotNil(accountHeader, message, file: file, line: line)
         return self
     }
 }
