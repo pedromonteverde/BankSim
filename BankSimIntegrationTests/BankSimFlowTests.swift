@@ -5,15 +5,15 @@
 import XCTest
 @testable import BankSim
 
-final class HomeToAccountFlowTests: ScreenTestCase {
+final class BankSimFlowTests: ScreenTestCase {
 
     override func setUp() {
         Repository.responseDelay = 0
         UIView.setAnimationsEnabled(false)
     }
 
-    func testHomeToAccountFlow() throws {
-        
+    func testHomeToAccountAndTransactionsFlow() throws {
+
         let exp = expectation(description: "")
 
         Task { @MainActor in
@@ -22,6 +22,12 @@ final class HomeToAccountFlowTests: ScreenTestCase {
                 .tap1stBankAccount()
                 .waitForPresentation()
                 .landOnAccountScreen()
+                .depositMoney(200)
+                .withdrawMoney(300)
+                .withdrawMoney(300)
+                .depositMoney(500)
+                .wait(for: 1)
+                .hasTheRightBalance(10100)
                 .fulfill(exp)
         }
 
@@ -29,6 +35,7 @@ final class HomeToAccountFlowTests: ScreenTestCase {
     }
 
     var coordinator: HomeCoordinator?
+    var accountCoordinator: AccountCoordinator?
     @discardableResult
     func StartHomeScreen() -> Self {
         navigationController.map {
@@ -53,7 +60,27 @@ final class HomeToAccountFlowTests: ScreenTestCase {
     @discardableResult
     func landOnAccountScreen(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
         let accountHeader = find(by: Accessibility.Account.header)
+        XCTAssertEqual(coordinator?.children.count, 1)
+        accountCoordinator = try XCTUnwrap({ coordinator?.children.first as? AccountCoordinator }(), message, file: file, line: line)
         XCTAssertNotNil(accountHeader, message, file: file, line: line)
+        return self
+    }
+
+    @discardableResult
+    func depositMoney(_ amount: Double, _ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
+        accountCoordinator?.viewModel.deposit(amountString: "\(amount)")
+        return self
+    }
+
+    @discardableResult
+    func withdrawMoney(_ amount: Double, _ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
+        accountCoordinator?.viewModel.withdraw(amountString: "\(amount)")
+        return self
+    }
+
+    @discardableResult
+    func hasTheRightBalance(_ balance: Double, _ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
+        XCTAssertEqual(accountCoordinator?.viewModel.accountBalance, balance)
         return self
     }
 }

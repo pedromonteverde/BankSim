@@ -19,7 +19,7 @@
 		CB22594F2B828360000631B0 /* ScreenTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCE1F222B800A11000418C1 /* ScreenTestCase.swift */; };
 		CB2259532B829EF8000631B0 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = CB2259522B829EF8000631B0 /* SwiftUIIntrospect */; };
 		CB2259552B82B664000631B0 /* BankSimAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2259542B82B664000631B0 /* BankSimAccountTests.swift */; };
-		CB2259572B82B89D000631B0 /* HomeToAccountFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */; };
+		CB2259572B82B89D000631B0 /* BankSimFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2259562B82B89D000631B0 /* BankSimFlowTests.swift */; };
 		CB5EB8872B798D3F00346C7D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5EB8862B798D3E00346C7D /* Repository.swift */; };
 		CBAB7E272B7BC98500A0E802 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAB7E262B7BC98500A0E802 /* Extensions.swift */; };
 		CBB15C1D2B7969CE00B1F9CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB15C1C2B7969CE00B1F9CC /* AppDelegate.swift */; };
@@ -83,7 +83,7 @@
 		CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CB2259442B8282C7000631B0 /* BankSimIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankSimIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2259542B82B664000631B0 /* BankSimAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimAccountTests.swift; sourceTree = "<group>"; };
-		CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeToAccountFlowTests.swift; sourceTree = "<group>"; };
+		CB2259562B82B89D000631B0 /* BankSimFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSimFlowTests.swift; sourceTree = "<group>"; };
 		CB5EB8862B798D3E00346C7D /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		CBAB7E262B7BC98500A0E802 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBB15C192B7969CE00B1F9CC /* BankSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +153,7 @@
 			children = (
 				CB0BEC122B7F8CE300720F41 /* BankSimHomeTests.swift */,
 				CB2259542B82B664000631B0 /* BankSimAccountTests.swift */,
-				CB2259562B82B89D000631B0 /* HomeToAccountFlowTests.swift */,
+				CB2259562B82B89D000631B0 /* BankSimFlowTests.swift */,
 				CBCE1F222B800A11000418C1 /* ScreenTestCase.swift */,
 				CB0BEC222B7FB34F00720F41 /* UIViewExtension.swift */,
 			);
@@ -441,7 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB22594D2B828360000631B0 /* UIViewExtension.swift in Sources */,
-				CB2259572B82B89D000631B0 /* HomeToAccountFlowTests.swift in Sources */,
+				CB2259572B82B89D000631B0 /* BankSimFlowTests.swift in Sources */,
 				CB2259552B82B664000631B0 /* BankSimAccountTests.swift in Sources */,
 				CB22594E2B828360000631B0 /* BankSimHomeTests.swift in Sources */,
 				CB22594F2B828360000631B0 /* ScreenTestCase.swift in Sources */,
