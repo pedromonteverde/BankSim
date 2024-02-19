@@ -21,6 +21,7 @@ final class BankSimAccountTests: ScreenTestCase {
                 .waitForPresentation()
                 .givenISeeAccountDetails()
                 .andIDepositMoneyTwice()
+                .wait(for: 1)
                 .iSee2Transactions()
                 .fulfill(exp)
         }
@@ -28,14 +29,16 @@ final class BankSimAccountTests: ScreenTestCase {
         waitForExpectations(timeout: 10)
     }
 
+    var coordinator: AccountCoordinator?
     @discardableResult
     func StartAccountScreen() -> Self {
-        navigationController.map {
+        coordinator = navigationController.map {
             AccountCoordinator(
                 navigationController: $0,
                 viewModel: AccountViewModel(accountRequest: Database.account.id)
             )
-        }?.start()
+        }
+        coordinator?.start()
         return self
     }
 
@@ -48,15 +51,15 @@ final class BankSimAccountTests: ScreenTestCase {
 
     @discardableResult
     func andIDepositMoneyTwice(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
-        let list = find(by: Accessibility.Account.list)
-        XCTAssertNotNil(list, message, file: file, line: line)
+        coordinator?.viewModel.deposit(amountString: "200")
+        coordinator?.viewModel.deposit(amountString: "200")
         return self
     }
 
     @discardableResult
     func iSee2Transactions(_ message: String = "", file: StaticString = #filePath, line: UInt = #line) throws -> Self {
         let cellView = filter(by: Accessibility.Account.cell)
-        XCTAssertEqual(cellView?.count, 0, message, file: file, line: line)
+        XCTAssertEqual(cellView?.count, 2, message, file: file, line: line)
         return self
     }
 }

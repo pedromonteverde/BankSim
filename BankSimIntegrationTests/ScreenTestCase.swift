@@ -8,6 +8,11 @@ import XCTest
 
 class ScreenTestCase: XCTestCase {
 
+    override func tearDown() {
+        navigationController?.viewControllers.removeAll()
+        Database.account.transactions.removeAll()
+    }
+
     var navigationController: UINavigationController? {
         let navigation = SceneDelegate.navigationController
         navigation?.delegate = self
