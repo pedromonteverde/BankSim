@@ -6,26 +6,6 @@ import XCTest
 @testable import BankSim
 
 final class AccountViewModelTests: XCTestCase {
-
-    var repository: Repository?
-
-    override func setUpWithError() throws {
-//        repository = MockRepository()
-    }
-
-    override func tearDownWithError() throws {
-        repository = nil
-    }
-
-    func testFecthDogImages_givenInvalidURL_ThrowError() throws {
-
-    }
-
-    func testFecthDogImages_givenInvalidCodables_ThrowError() throws {
-
-    }
-
-    func testFecthDogImages_givenValidRequest_RetrieveDogImages() throws {
-
-    }
+    // In Progress...
+    // Integration Tests done for now
 }

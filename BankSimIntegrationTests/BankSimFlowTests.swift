@@ -8,30 +8,26 @@ import XCTest
 final class BankSimFlowTests: ScreenTestCase {
 
     override func setUp() {
+        super.setUp()
         Repository.responseDelay = 0
         UIView.setAnimationsEnabled(false)
     }
 
-    func testHomeToAccountAndTransactionsFlow() throws {
+    @MainActor
+    func testHomeToAccountAndTransactionsFlow() async throws {
 
-        let exp = expectation(description: "")
-
-        Task { @MainActor in
-            try await StartHomeScreen()
-                .waitForPresentation()
-                .tap1stBankAccount()
-                .waitForPresentation()
-                .landOnAccountScreen()
-                .depositMoney(200)
-                .withdrawMoney(300)
-                .withdrawMoney(300)
-                .depositMoney(500)
-                .wait(for: 1)
-                .hasTheRightBalance(10100)
-                .fulfill(exp)
-        }
-
-        waitForExpectations(timeout: 10)
+        try await StartHomeScreen()
+            .waitForPresentation()
+            .tap1stBankAccount()
+            .waitForPresentation()
+            .landOnAccountScreen()
+            .depositMoney(200)
+            .withdrawMoney(300)
+            .withdrawMoney(300)
+            .depositMoney(500)
+            .wait(for: 1)
+            .hasTheRightBalance(10100)
+            .fulfill()
     }
 
     var coordinator: HomeCoordinator?

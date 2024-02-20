@@ -8,24 +8,20 @@ import XCTest
 final class BankSimHomeTests: ScreenTestCase {
 
     override func setUp() {
+        super.setUp()
         Repository.responseDelay = 0
         UIView.setAnimationsEnabled(false)
     }
 
-    func testHomeScreen() throws {
+    @MainActor
+    func testHomeScreen() async throws {
 
-        let exp = expectation(description: "")
-
-        Task { @MainActor in
-            try await StartHomeScreen()
-                .waitForPresentation()
-                .thenISeeUserProfileDetails()
-                .andThereAreBankAccounts()
-                .tap1stBankAccount()
-                .fulfill(exp)
-        }
-
-        waitForExpectations(timeout: 10)
+        try await StartHomeScreen()
+            .waitForPresentation()
+            .thenISeeUserProfileDetails()
+            .andThereAreBankAccounts()
+            .tap1stBankAccount()
+            .fulfill()
     }
 
     @discardableResult

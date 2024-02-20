@@ -8,6 +8,14 @@ import XCTest
 
 class ScreenTestCase: XCTestCase {
 
+    static let timeout: Double = 10
+    var exp: XCTestExpectation?
+    var screenPresented: (() -> Void)?
+
+    override func setUp() {
+        exp = expectation(description: "ScreenTestCase")
+    }
+
     override func tearDown() {
         navigationController?.viewControllers.removeAll()
         Database.account.transactions.removeAll()
@@ -19,7 +27,6 @@ class ScreenTestCase: XCTestCase {
         return navigation
 
     }
-    var screenPresented: (() -> Void)?
 
     func find(by accessibilityIdentifier: String) -> UIView? {
         navigationController?
@@ -42,8 +49,9 @@ class ScreenTestCase: XCTestCase {
         return self
     }
 
-    func fulfill(_ expectaction: XCTestExpectation) {
-        expectaction.fulfill()
+    func fulfill() async {
+        exp?.fulfill()
+        await fulfillment(of: [exp].compactMap {$0}, timeout: Self.timeout)
     }
 }
 

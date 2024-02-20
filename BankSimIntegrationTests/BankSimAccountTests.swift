@@ -8,25 +8,20 @@ import XCTest
 final class BankSimAccountTests: ScreenTestCase {
 
     override func setUp() {
+        super.setUp()
         Repository.responseDelay = 0
         UIView.setAnimationsEnabled(false)
     }
 
-    func testAccountScreen() throws {
+    func testAccountScreen() async throws {
 
-        let exp = expectation(description: "")
-
-        Task { @MainActor in
-            try await StartAccountScreen()
-                .waitForPresentation()
-                .givenISeeAccountDetails()
-                .andIDepositMoneyTwice()
-                .wait(for: 1)
-                .iSee2Transactions()
-                .fulfill(exp)
-        }
-
-        waitForExpectations(timeout: 10)
+        try await StartAccountScreen()
+            .waitForPresentation()
+            .givenISeeAccountDetails()
+            .andIDepositMoneyTwice()
+            .wait(for: 1)
+            .iSee2Transactions()
+            .fulfill()
     }
 
     var coordinator: AccountCoordinator?
