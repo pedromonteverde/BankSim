@@ -25,4 +25,11 @@ struct Database {
             )
         ]
     )
+
+    static func reset() {
+        account.transactions.removeAll()
+        account.balance = 10000
+        user.accounts[1].balance = 7800
+        user.accounts[2].balance = 780
+    }
 }

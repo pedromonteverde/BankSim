@@ -12,6 +12,7 @@ final class AccountViewModelTests: XCTestCase {
     var cancellables = Set<AnyCancellable>()
 
     override func setUp() {
+        Database.reset()
         Repository.responseDelay = 0
         sut = AccountViewModel(accountRequest: Tests.validAccountRequest)
     }

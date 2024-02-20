@@ -13,12 +13,12 @@ class ScreenTestCase: XCTestCase {
     var screenPresented: (() -> Void)?
 
     override func setUp() {
+        Database.reset()
         exp = expectation(description: "ScreenTestCase")
     }
 
     override func tearDown() {
         navigationController?.viewControllers.removeAll()
-        Database.account.transactions.removeAll()
     }
 
     var navigationController: UINavigationController? {

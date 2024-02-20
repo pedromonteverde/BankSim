@@ -12,6 +12,7 @@ final class HomeViewModelTests: XCTestCase {
     var cancellables = Set<AnyCancellable>()
 
     override func setUp() {
+        Database.reset()
         Repository.responseDelay = 0
         sut = HomeViewModel()
     }
