@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CB0BEBF82B7F078B00720F41 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEBF72B7F078B00720F41 /* Accessibility.swift */; };
-		CB0BEC082B7F8BB300720F41 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC072B7F8BB300720F41 /* CoordinatorTests.swift */; };
+		CB0BEC082B7F8BB300720F41 /* CoordinatorFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC072B7F8BB300720F41 /* CoordinatorFlowTests.swift */; };
 		CB0BEC0A2B7F8BBD00720F41 /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC092B7F8BBD00720F41 /* ValidatorTests.swift */; };
 		CB0BEC0E2B7F8BDE00720F41 /* AccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC0D2B7F8BDE00720F41 /* AccountViewModelTests.swift */; };
 		CB0BEC102B7F8BED00720F41 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BEC0F2B7F8BED00720F41 /* HomeViewModelTests.swift */; };
@@ -71,7 +71,7 @@
 
 /* Begin PBXFileReference section */
 		CB0BEBF72B7F078B00720F41 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
-		CB0BEC072B7F8BB300720F41 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
+		CB0BEC072B7F8BB300720F41 /* CoordinatorFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFlowTests.swift; sourceTree = "<group>"; };
 		CB0BEC092B7F8BBD00720F41 /* ValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		CB0BEC0D2B7F8BDE00720F41 /* AccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTests.swift; sourceTree = "<group>"; };
 		CB0BEC0F2B7F8BED00720F41 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		CBB15C2C2B7969D200B1F9CC /* BankSimTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB0BEC072B7F8BB300720F41 /* CoordinatorTests.swift */,
+				CB0BEC072B7F8BB300720F41 /* CoordinatorFlowTests.swift */,
 				CB0BEC092B7F8BBD00720F41 /* ValidatorTests.swift */,
 				CB50527E2B84C9710045BC42 /* RepositoryTests.swift */,
 				CB0BEC0D2B7F8BDE00720F41 /* AccountViewModelTests.swift */,
@@ -477,7 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB0BEC0A2B7F8BBD00720F41 /* ValidatorTests.swift in Sources */,
-				CB0BEC082B7F8BB300720F41 /* CoordinatorTests.swift in Sources */,
+				CB0BEC082B7F8BB300720F41 /* CoordinatorFlowTests.swift in Sources */,
 				CB0BEC0E2B7F8BDE00720F41 /* AccountViewModelTests.swift in Sources */,
 				CB50527F2B84C9710045BC42 /* RepositoryTests.swift in Sources */,
 				CB0BEC102B7F8BED00720F41 /* HomeViewModelTests.swift in Sources */,
