@@ -17,13 +17,9 @@ class AccountViewModel: ObservableObject {
     @Published var error: Error?
     @Published var accountRequest: AccountRequest
 
-    init(accountRequest: AccountRequest) {
-        self.accountRequest = accountRequest
-    }
-
     var cancellables = Set<AnyCancellable>()
 
-    var validator: Validating = Validator()
+    let validator: Validating
 
     private let repository = Repository()
     private let userSubject = PassthroughSubject<Void, Never>()
@@ -51,6 +47,16 @@ class AccountViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
 
+    init(accountRequest: AccountRequest) {
+        self.accountRequest = accountRequest
+        validator = Validator()
+
+        subscribe(to: transactionPublisher) { (balance, transaction) in
+            self.accountBalance = balance
+            self.transactions.append(transaction)
+        }
+    }
+
     func fetch() {
         Publishers.CombineLatest(userPublisher, accountPublisher)
             .sink { resultA, resultB in
@@ -71,10 +77,6 @@ class AccountViewModel: ObservableObject {
             }
             .store(in: &cancellables)
 
-        subscribe(to: transactionPublisher) { (balance, transaction) in
-            self.accountBalance = balance
-            self.transactions.append(transaction)
-        }
         accountSubject.send(accountRequest)
         userSubject.send()
     }
